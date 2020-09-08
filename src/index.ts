@@ -1,7 +1,6 @@
-const domEntry = document.getElementById('app');
+import DomUtils from './DomLib/DomUtils';
+import Test from './TestModule/Test';
 
-let myDiv = document.createElement('h1');
-myDiv.textContent = "TS / JS working";
-myDiv.style.color = "red";
+const theTest = new Test();
 
-domEntry?.appendChild(myDiv) || console.log('no element found');
+DomUtils.TemplateReplacer('bacon', theTest);
