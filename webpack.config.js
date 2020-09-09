@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     resolve: [ "src", "node_modules", "public"],
     entry: path.resolve(__dirname, 'src/index.ts'),
     devtool: 'inline-source-map',
@@ -13,9 +13,6 @@ module.exports = {
                 exclude: /node_modules/
             },
         ],
-    },
-    devServer: {
-        contentBase: "public"
     },
     resolve: {
         extensions: [ '.ts', '.js', '.mjs', '.cjs', '.json', '.html' ]
