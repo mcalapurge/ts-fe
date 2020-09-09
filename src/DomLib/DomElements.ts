@@ -57,6 +57,16 @@ export class DomElement extends HTMLDivElement {
         });
     }
     
+    /**
+     * Adds click Handler to element
+     * @param func function to be called on click
+     */
+    public addClickHandler(func: any, addPointer: boolean = true): void {
+        if (addPointer) this.addStyle('clickable');
+        /** dis */
+        this.addEventListener('click', func);
+    }
+
 }
 
 /**
@@ -64,8 +74,10 @@ export class DomElement extends HTMLDivElement {
  */
 export class Label extends DomElement {
     
-    constructor(){
+    constructor(text?:string){
         super();
+        if (text) this.setText(text);
+        this.addStyle('no-select');
     }
     
     /**

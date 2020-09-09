@@ -1,4 +1,5 @@
 import { DomElement, Label } from '../DomLib/DomElements';
+import DomUtils from '../DomLib/DomUtils';
 
 export default class Test extends DomElement {
 
@@ -19,16 +20,23 @@ export default class Test extends DomElement {
         title.setText("Hello World");
         title.addStyle('Test_title');
         this.appendChild(title);
-
+        
         const imageContainer = new DomElement();
         imageContainer.addStyle('ImageContainer');
+
         const newImage = new Image();
         newImage.setAttribute('src', 'assets/img/giphy.gif');
         imageContainer.appendChild(newImage);
         this.appendChild(imageContainer);
+        title.addClickHandler(() => {
+            imageContainer.hideElement();
+        }, true);
+
+        const newLabel = new Label('New Label is here');
+        newLabel.addStyle('color-red');
+        this.appendChild(newLabel);
 
     }
-
 }
 
 // Custom elements definitions
